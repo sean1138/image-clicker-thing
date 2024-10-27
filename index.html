@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>image clicker thing</title>
+	<style>
+		.jpb-img-wrap img{
+			cursor: pointer;
+			height: 334px;
+			max-width: 100%;
+		}
+		.jpb-img-wrap{
+			position: relative;
+		}
+		.jpb-img-wrap::after{
+			content: '';
+			display: flex;
+			place-items: center;
+			place-content: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			cursor: pointer;
+			pointer-events: none;
+		}
+		.jpb-img-wrap:hover::after{
+			content: 'Click the img to change the logo!';
+			color: white;
+			background: rgba(0,0,0,.5);
+		}
+	</style>
+</head>
+<body>
+
+	<!--[if lte IE 9]>
+	  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+	<div class="jpb-img-wrap">
+		<img id="jpb-img-select" src="" alt="logo" height="273" width="240">
+		<!-- <img id="jpb-img-select" width="380" height="334" src="cropped-162112114_5131605503580210_3047260336910526452_n-removebg-preview.png" class="attachment-full size-full" alt=""> -->
+	</div>
+	<script>
+	var counter = 0;
+	var img1 = "Ashbrook-logo-PANTONE-380.png";
+	var img2 = "Ashbrook-logo-eagleA-380.png";
+	var img3 = "Ashbrook-logo-head-only-380.png";
+	window.onload = function() {
+		if (!localStorage.lastSelection) {
+			document.getElementById("jpb-img-select").src = img1;
+			localStorage.setItem("lastSelection", img1);
+		} else {
+			document.getElementById("jpb-img-select").src = localStorage.getItem("lastSelection");
+		}
+	};
+	document.getElementById("jpb-img-select").onclick = function() {
+		if (counter == 0) {
+			document.getElementById("jpb-img-select").src = img1;
+			localStorage.setItem("lastSelection", img1);
+			counter++;
+		} else if (counter == 1) {
+			document.getElementById("jpb-img-select").src = img2;
+			localStorage.setItem("lastSelection", img2);
+			counter++;
+		} else if (counter == 2) {
+			document.getElementById("jpb-img-select").src = img3;
+			localStorage.setItem("lastSelection", img3);
+			counter = 0;
+		}
+	}
+	</script>
+	<!-- 2022.04.29 -->
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>WOW</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+	body {
+		margin: 0;
+	}
+	input {
+		display: none;
+	}
+	input+label {
+		display: block;
+	}
+	input, input+label {
+		background-color: grey;
+		position: fixed;
+		top: 0;
+		width: 100vw;
+		text-align: center;
+		z-index: 0;
+	}
+	input+label {
+		z-index: 0;
+	}
+	input#R+label, input:checked#R ~ input#G+label, input:checked#G ~ input#B+label, input:checked#B ~ input#C+label, input:checked#C ~ input#M+label, input:checked#M ~ input#Y+label {
+		z-index: 1;
+	}
+	input:checked#R ~ main {
+		--background-color: red;
+	}
+	input:checked#G ~ main {
+		--background-color: green;
+	}
+	input:checked#B ~ main {
+		--background-color: blue;
+	}
+	input:checked#C ~ main {
+		--background-color: cyan;
+	}
+	input:checked#M ~ main {
+		--background-color: magenta;
+	}
+	input:checked#Y ~ main {
+		--background-color: yellow;
+	}
+	main {
+		margin-top: 20px;
+		width: 100vw;
+		height: calc(100vh - 20px);
+		background-color: var(--background-color);
+	}
+	</style>
+</head>
+<body>
+	<input type=radio name=group id=R value=R checked>
+	<label for=R>Red</label>
+	<input type=radio name=group id=G value=G>
+	<label for=G>Green</label>
+	<input type=radio name=group id=B value=B>
+	<label for=B>Blue</label>
+	<input type=radio name=group id=C value=C>
+	<label for=C>Cyan</label>
+	<input type=radio name=group id=M value=M>
+	<label for=M>Magenta</label>
+	<input type=radio name=group id=Y value=Y>
+	<label for=Y>Yellow</label>
+	<main>hello world<p>https://jsfiddle.net/ds1L9xn4</p></main>
+</body>
+</html>
